@@ -21,9 +21,10 @@ public class SpringInStepsScopeApplication {
         PersonDAO personDAO2 = context.getBean(PersonDAO.class);
 
         LOGGER.info("{}", personDAO);
-        LOGGER.info("{}", personDAO.getJdbcConnection());
+        LOGGER.info("{}", personDAO.getJdbcConnection());   // this is one JdbcConnection instance
+        LOGGER.info("{}", personDAO.getJdbcConnection());   // this is another JdbcConnection instance
         LOGGER.info("{}", personDAO2);
-        LOGGER.info("{}", personDAO2.getJdbcConnection());
+        LOGGER.info("{}", personDAO2.getJdbcConnection());  // yet another
     }
 
 }

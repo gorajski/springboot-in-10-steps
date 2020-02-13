@@ -1,25 +1,25 @@
 package com.gorajski.spring.basics.springinsteps.basic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)     //Get new BinarySearchImpl instance everytime.  Same SortAlgorithm instance will be used tho.
 public class BinarySearchImpl {
 
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
-    @Qualifier("quick")     //To use @Qualifier, you should NOT have the arg passed/set in a constructor
-                            //**OR**
-                            //If you do have it in a constructor, add @Qualifier there too as shown below. (Comment it in)
+    @Qualifier("quick")
     private SortAlgorithm sortAlgorithm;
-
-//        public BinarySearchImpl(@Qualifier("quick") SortAlgorithm sortAlgorithm) {
-//        this.sortAlgorithm = sortAlgorithm;
-//    }
-
 
     public int binarySearch(int[] numbers, int numberToSearchFor) {
 
@@ -28,4 +28,15 @@ public class BinarySearchImpl {
 
         return 3;
     }
+
+    @PostConstruct  //As soon as bean is created, this method will be called
+    public void postConstruct() {
+        logger.info("postConstruct");
+    }
+
+    @PreDestroy  //Just before the bean is removed out of the context, this method will be called
+    public void preDestroy() {
+        logger.info("preDestroy");
+    }
+
 }
