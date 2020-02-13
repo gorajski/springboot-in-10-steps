@@ -2,9 +2,11 @@ package com.gorajski.spring.basics.springinsteps;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")     //Get new BinarySearchImpl instance everytime.  Same SortAlgorithm instance will be used tho.
 public class BinarySearchImpl {
 
     @Autowired
