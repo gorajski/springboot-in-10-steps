@@ -1,11 +1,17 @@
 package com.gorajski.spring.basics.springinsteps;
 
 import com.gorajski.spring.basics.springinsteps.basic.BinarySearchImpl;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
+//@SpringBootApplication
+@Configuration
+@ComponentScan
 public class SpringInStepsBasicApplication {
 
 	//What are the beans?
@@ -31,8 +37,9 @@ public class SpringInStepsBasicApplication {
 		//BinarySearchImpl **binarySearch** =
 		//  new BinarySearchImpl( **new QuickSortAlgorithm()** );
 
-		ConfigurableApplicationContext context =
-				SpringApplication.run(SpringInStepsBasicApplication.class, args);
+		ApplicationContext context =
+				new AnnotationConfigApplicationContext(SpringInStepsBasicApplication.class);
+//				SpringApplication.run(SpringInStepsBasicApplication.class, args);
 
 		BinarySearchImpl binarySearch = context.getBean(BinarySearchImpl.class);
 		BinarySearchImpl binarySearch1 = context.getBean(BinarySearchImpl.class);
