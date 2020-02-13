@@ -1,7 +1,7 @@
 package com.gorajski.spring.basics.springinsteps.basic;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -15,7 +15,7 @@ import javax.annotation.PreDestroy;
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)     //Get new BinarySearchImpl instance everytime.  Same SortAlgorithm instance will be used tho.
 public class BinarySearchImpl {
 
-//    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     @Qualifier("quick")
@@ -31,12 +31,12 @@ public class BinarySearchImpl {
 
     @PostConstruct  //As soon as bean is created, this method will be called
     public void postConstruct() {
-//        logger.info("postConstruct");
+        logger.info("postConstruct");
     }
 
     @PreDestroy  //Just before the bean is removed out of the context, this method will be called
     public void preDestroy() {
-//        logger.info("preDestroy");
+        logger.info("preDestroy");
     }
 
 }

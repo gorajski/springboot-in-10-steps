@@ -37,8 +37,9 @@ public class SpringInStepsBasicApplication {
 		//BinarySearchImpl **binarySearch** =
 		//  new BinarySearchImpl( **new QuickSortAlgorithm()** );
 
-		ApplicationContext context =
-				new AnnotationConfigApplicationContext(SpringInStepsBasicApplication.class);
+		AnnotationConfigApplicationContext context =
+				new AnnotationConfigApplicationContext(
+						SpringInStepsBasicApplication.class);
 //				SpringApplication.run(SpringInStepsBasicApplication.class, args);
 
 		BinarySearchImpl binarySearch = context.getBean(BinarySearchImpl.class);
@@ -52,6 +53,8 @@ public class SpringInStepsBasicApplication {
 		System.out.println("Success!");
 		System.out.println("Result:" + result);
 		System.out.println("*********");
+
+		context.close();
 	}
 
 }
