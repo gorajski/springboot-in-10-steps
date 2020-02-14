@@ -1,23 +1,28 @@
 package com.gorajski.spring.basics.springinsteps;
 
 import com.gorajski.spring.basics.springinsteps.xml.XmlPersonDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@Configuration
-@ComponentScan
+import java.util.Arrays;
+import java.util.List;
+
 public class SpringInStepsXmlContextApplication {
 
+    private static Logger LOGGER = LoggerFactory.getLogger(SpringInStepsXmlContextApplication.class);
+
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml")) {
 
-        XmlPersonDAO personDAO = context.getBean(XmlPersonDAO.class);
+            LOGGER.info("BEANS LOADED -> {}", (Object) context.getBeanDefinitionNames());
 
-        System.out.println(personDAO);
-        System.out.println(personDAO.getXMLJdbcConnection());
+            XmlPersonDAO personDAO = context.getBean(XmlPersonDAO.class);
 
-        context.close();
+            LOGGER.info("{} {}", personDAO, personDAO.getXMLJdbcConnection());
+
+        }
     }
 
 }
