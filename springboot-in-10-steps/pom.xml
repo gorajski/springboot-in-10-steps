@@ -29,6 +29,22 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
+		<!--REGARDING SPRING DEV TOOLS-->
+		<!--Make sure you restart the server the first time you add the dependency in.-->
+
+		<!--I’ve heard of a few problems with Intellij.-->
+
+		<!--Here's a quick summary of what you have to do-->
+
+		<!--Settings &ndash;&gt; Build-Execution-Deployment &ndash;&gt; Compiler &ndash;&gt; enable "Make Project Automatically".-->
+		<!--Press ctrl+shift+A and search for the registry. Enable following configuration compiler.automake.allow.when.app.running-->
+		<!--Restart IntelliJ.-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-browser</artifactId>
