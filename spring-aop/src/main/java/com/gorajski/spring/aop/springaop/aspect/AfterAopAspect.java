@@ -25,7 +25,7 @@ public class AfterAopAspect {
     }
 
     @After(
-            value="execution(* com.gorajski.spring.aop.springaop.business.*.*(..))"
+            value="com.gorajski.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()"
     )
     public void after(JoinPoint joinPoint) {
         logger.info("after execution of {}", joinPoint);

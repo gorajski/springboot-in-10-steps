@@ -16,7 +16,7 @@ public class UserAccessAspect {
     // What kind of method calls would I want to intercept:
 
 
-    @Before("execution(* com.gorajski.spring.aop.springaop.data.*.*(..))")
+    @Before("com.gorajski.spring.aop.springaop.aspect.CommonJoinPointConfig.dataLayerExecution()")
     // execution(* PACKAGE.*.*(..))
     //         execution(*      <- here * means any method irrespective of return type
     //         PACKAGE..*       <- any class of any SUBPACKAGE within the specified PACKAGE
