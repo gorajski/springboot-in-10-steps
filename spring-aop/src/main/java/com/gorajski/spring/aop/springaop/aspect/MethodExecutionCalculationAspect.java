@@ -16,7 +16,7 @@ public class MethodExecutionCalculationAspect {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Around("com.gorajski.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()")
+    @Around("com.gorajski.spring.aop.springaop.aspect.CommonJoinPointConfig.trackTimeAnnotation()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         //ProceedingJoinPoint allows us to "do something around" the method
 

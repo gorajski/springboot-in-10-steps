@@ -21,4 +21,7 @@ public class CommonJoinPointConfig {
     //Intercept all the calls within the data layer.  Similar to dataLayerExecution(){}, just implemented with "within"
     @Pointcut("within(com.gorajski.spring.aop.springaop.data..*)")
     public void dataLayerExecutionUtilizingWithinKeyword(){}
+
+    @Pointcut("@annotation(com.gorajski.spring.aop.springaop.aspect.TrackTime)")
+    public void trackTimeAnnotation(){}
 }

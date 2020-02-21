@@ -1,5 +1,6 @@
 package com.gorajski.spring.aop.springaop.data;
 
+import com.gorajski.spring.aop.springaop.aspect.TrackTime;
 import org.springframework.stereotype.Repository;
 
 @Repository
