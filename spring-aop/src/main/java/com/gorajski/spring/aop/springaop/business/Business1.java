@@ -14,6 +14,7 @@ public class Business1 {
 
         //Some Business logic...
 
-        return dao1.retrieveSomething();
+//        return dao1.retrieveSomething();
+        return "Yannick";
     }
 }
